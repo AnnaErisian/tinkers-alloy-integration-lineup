@@ -1,0 +1,11 @@
+material.valonite.name=Valonite
+material.octine.name=Octine
+material.syrmorite.name=Syrmorite
+material.scabyst.name=Scabyst
+fluid.octine.name=Molten Octine
+fluid.syrmorite.name=Molten Syrmorite
+fluid.lapis.name=Molten Lapis Lazuli
+fluid.netherstar.name=Molten Nether Stars
+
+modifier.ignitive.name=Ignitive
+modifier.ignitive.desc=§oSome men...§r\nSets creatures on fire for a few seconds
