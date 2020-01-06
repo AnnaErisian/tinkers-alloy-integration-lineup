@@ -1,18 +1,22 @@
 package blue.thejester.tail.core;
 
+import blue.thejester.tail.Tail;
+import blue.thejester.tail.block.BlockStorage;
+import blue.thejester.tail.item.ItemMaterial;
+import blue.thejester.tail.item.MetalMaterial;
+import blue.thejester.tail.item.ModItems;
 import net.minecraft.block.Block;
+import net.minecraft.init.Items;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fluids.Fluid;
+import slimeknights.mantle.client.CreativeTab;
 
 public abstract class CommonProxy {
 
-    public static Block blockInventoryBasic;  // this holds the unique instance of your block
-    public static ItemBlock itemBlockInventoryBasic; // and the corresponding item form that block
-    public static Block blockInventoryBasicM;  // this holds the unique instance of your block
-    public static ItemBlock itemBlockInventoryBasicM; // and the corresponding item form that block
-    public static Block blockInventoryBasicL;  // this holds the unique instance of your block
-    public static ItemBlock itemBlockInventoryBasicL; // and the corresponding item form that block
+    public static CreativeTab tailCreativeTab = new CreativeTab("TailTab", new ItemStack(Items.IRON_HOE));
 
     /**
      * Run before anything else. Read your config, create blocks, items, etc, and register them with the GameRegistry
@@ -20,6 +24,10 @@ public abstract class CommonProxy {
     public void preInit() {
         //read config first
 
+        ModItems.init();
+        MetalMaterial.makeItems();
+
+        tailCreativeTab.setDisplayIcon(MetalMaterial.adamantite.ingotStack);
 
     }
 
@@ -28,15 +36,14 @@ public abstract class CommonProxy {
      * send FMLInterModComms messages to other mods.
      */
     public void init() {
-
-        ResourceLocation crateRecipeGroup = new ResourceLocation("tail");
-
+        MetalMaterial.makeRecipes();
     }
 
     /**
      * Handle interaction with other mods, complete your setup based on this.
      */
     public void postInit() {
+        MetalMaterial.registerOreDict();
     }
 
     /**

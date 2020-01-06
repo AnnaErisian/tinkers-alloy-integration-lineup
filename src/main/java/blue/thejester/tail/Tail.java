@@ -3,25 +3,13 @@ package blue.thejester.tail;
 import blue.thejester.tail.core.CommonProxy;
 import blue.thejester.tail.item.ModItems;
 import blue.thejester.tail.modules.*;
-import c4.conarm.common.armor.traits.ArmorTraits;
-import c4.conarm.lib.ArmoryRegistry;
-import c4.conarm.lib.materials.*;
-import landmaster.plustic.traits.Mana;
-import landmaster.plustic.traits.Mirabile;
-import landmaster.plustic.traits.Terrafirma;
-import net.minecraft.item.Item;
-import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import org.apache.logging.log4j.Logger;
-import slimeknights.tconstruct.library.TinkerRegistry;
-import slimeknights.tconstruct.library.materials.Material;
 
 import java.util.Arrays;
 
@@ -55,9 +43,8 @@ public class Tail
     {
         logger = event.getModLog();
         ModItems.init();
-        IModule.modules.addAll(Arrays.asList(new BotaniaArmor(), new Betweenlands(), new Fluids(), new Netherstar()));
+        IModule.modules.addAll(Arrays.asList(new BotaniaArmor(), new Betweenlands(), new Fluids(), new Netherstar(), new NewMaterials()));
         IModule.modules.forEach(IModule::init);
-
 
         proxy.preInit();
     }
