@@ -4,10 +4,8 @@ import landmaster.plustic.api.Sounds;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
-import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.text.TextComponentTranslation;
@@ -20,10 +18,10 @@ import slimeknights.tconstruct.library.utils.TagUtil;
 import slimeknights.tconstruct.library.utils.TinkerUtil;
 import slimeknights.tconstruct.library.utils.ToolHelper;
 
-public class AbsoluteDomain extends AbstractTrait {
-	public static final AbsoluteDomain absoluteDomain = new AbsoluteDomain();
+public class AbsoluteDominion extends AbstractTrait {
+	public static final AbsoluteDominion absoluteDominion = new AbsoluteDominion();
 
-	public AbsoluteDomain() {
+	public AbsoluteDominion() {
 		super("absolute_domain",0xffffff);
 		MinecraftForge.EVENT_BUS.register(this);
 	}
@@ -36,7 +34,6 @@ public class AbsoluteDomain extends AbstractTrait {
 				|| event.getItemStack() == null
 				|| !TinkerUtil.hasTrait(nbt, getIdentifier())
 				|| ToolHelper.getCurrentDurability(event.getItemStack()) < durabilityCost(event.getTarget())
-				|| nbt.hasKey("portlyGentleman", 10)
 				|| event.getTarget() instanceof EntityPlayer) {
 			return;
 		}
@@ -58,7 +55,6 @@ public class AbsoluteDomain extends AbstractTrait {
 
 	private int durabilityCost(Entity entity) {
 		return Math.max(15, entity instanceof EntityLivingBase ?
-				//(int)((EntityLivingBase)entity).getHealth() * 100 : 150);
-				(int)((EntityLivingBase)entity).getHealth() * 10 : 15);
+				(int)((EntityLivingBase)entity).getHealth() * 100 : 150);
 	}
 }
