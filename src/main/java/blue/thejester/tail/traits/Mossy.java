@@ -10,7 +10,6 @@ import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
-import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.PlayerPickupXpEvent;
@@ -43,7 +42,6 @@ public class Mossy extends AbstractTraitLeveled {
 
     @Override
     public void onUpdate(ItemStack tool, World world, Entity entity, int itemSlot, boolean isSelected) {
-        entity.sendMessage(new TextComponentTranslation("Hi"));
         // only in the hotbar of a player
         if(!world.isRemote && entity instanceof EntityLivingBase) {
             // must be in hotbar or offhand for players
@@ -64,7 +62,6 @@ public class Mossy extends AbstractTraitLeveled {
 
     @SubscribeEvent
     public void onPickupXp(PlayerPickupXpEvent event) {
-        event.getEntityPlayer().sendMessage(new TextComponentTranslation("Hiiiiii"));
         // try mainhand first, then offhand
         List<ItemStack> tools = Lists.newArrayList(event.getEntityPlayer().getHeldItemMainhand(),
                 event.getEntityPlayer().getHeldItemOffhand());

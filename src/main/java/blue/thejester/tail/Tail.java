@@ -1,5 +1,6 @@
 package blue.thejester.tail;
 
+import blue.thejester.tail.asm.ClassTransformer;
 import blue.thejester.tail.core.CommonProxy;
 import blue.thejester.tail.item.ModItems;
 import blue.thejester.tail.modules.*;
@@ -9,6 +10,7 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.Logger;
 
 import java.util.Arrays;
@@ -59,5 +61,6 @@ public class Tail
     public void postInit(FMLPostInitializationEvent event)
     {
         proxy.postInit();
+        logger.log(Level.DEBUG, ClassTransformer.transformations + "/1 ASM Transformations were applied from Tail.");
     }
 }

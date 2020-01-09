@@ -2,18 +2,12 @@ package blue.thejester.tail.modules;
 
 import blue.thejester.tail.helper.fluid.Create;
 import blue.thejester.tail.traits.*;
-import c4.conarm.lib.ArmoryRegistry;
-import c4.conarm.lib.materials.ArmorMaterials;
-import c4.conarm.lib.materials.CoreMaterialStats;
-import c4.conarm.lib.materials.PlatesMaterialStats;
-import c4.conarm.lib.materials.TrimMaterialStats;
+import c4.conarm.lib.materials.*;
 import landmaster.plustic.traits.Apocalypse;
 import slimeknights.tconstruct.library.MaterialIntegration;
 import slimeknights.tconstruct.library.TinkerRegistry;
 import slimeknights.tconstruct.library.materials.*;
-import slimeknights.tconstruct.tools.TinkerModifiers;
 import slimeknights.tconstruct.tools.TinkerTraits;
-import slimeknights.tconstruct.tools.modifiers.ModMendingMoss;
 
 public class NewMaterials implements IModule {
     @Override
@@ -48,6 +42,7 @@ public class NewMaterials implements IModule {
                     new BowMaterialStats(1.1f, 0.8f, 3f)
             );
             chaoite.setRenderInfo(0xFFFFFF);
+            ArmorMaterials.addArmorTrait(chaoite, Floaty.floaty);
 
             MaterialIntegration chaoiteMi = new MaterialIntegration(chaoite, Create.plain("chaoite", 0x4e58a7)).setRepresentativeItem("ingotChaoite");
             TinkerRegistry.integrate(chaoiteMi).preInit();
@@ -95,7 +90,8 @@ public class NewMaterials implements IModule {
                     new BowMaterialStats(0.3f, 1.2f, 12f)
             );
             oil_steel.setRenderInfo(0xFFFFFF);
-            ArmorMaterials.addArmorTrait(oil_steel, Slippery.slippery);
+            ArmorMaterials.addArmorTrait(oil_steel, Slippery_Armor.slippery);
+            oil_steel.addTrait(Slippery.slippery);
 
             MaterialIntegration oil_steelMi = new MaterialIntegration(oil_steel, Create.plain("oil_steel", 0x4e58a7)).setRepresentativeItem("ingotOilSteel");
             TinkerRegistry.integrate(oil_steelMi).preInit();
