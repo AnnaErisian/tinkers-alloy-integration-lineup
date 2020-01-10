@@ -342,6 +342,8 @@ public class NewMaterials implements IModule {
                     new BowMaterialStats(1.35f, 1.5f, 5.5f)
             );
             florium.setRenderInfo(0xFFFFFF);
+            ArmorMaterials.addArmorTrait(florium, FlowerPower_Armor.flowerpower, ArmorMaterialType.CORE);
+            florium.addTrait(FlowerPower.flowerpower, MaterialTypes.HEAD);
 
             MaterialIntegration floriumMi = new MaterialIntegration(florium, Create.plain("florium", 0x4e58a7)).setRepresentativeItem("ingotFlorium");
             TinkerRegistry.integrate(floriumMi).preInit();
@@ -461,6 +463,7 @@ public class NewMaterials implements IModule {
                     new BowMaterialStats(0.2f, 1.2f, 10f),
                     new ArrowShaftMaterialStats(1.6f, 15)
             );
+            bavarium.addTrait(Detonator.detonator, MaterialTypes.HEAD);
             bavarium.setRenderInfo(0xFFFFFF);
 
             MaterialIntegration bavariumMi = new MaterialIntegration(bavarium, Create.plain("bavarium", 0x4e58a7)).setRepresentativeItem("ingotBavarium");
