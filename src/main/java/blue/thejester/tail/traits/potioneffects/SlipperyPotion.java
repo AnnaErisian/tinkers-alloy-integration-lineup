@@ -3,6 +3,7 @@ package blue.thejester.tail.traits.potioneffects;
 import blue.thejester.tail.Tail;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -29,5 +30,15 @@ public class SlipperyPotion extends Potion {
     @Override
     public List<ItemStack> getCurativeItems() {
         return new ArrayList<ItemStack>();
+    }
+
+    @Override
+    public boolean shouldRenderInvText(PotionEffect effect) {
+        return false;
+    }
+
+    @Override
+    public boolean shouldRender(PotionEffect effect) {
+        return false;
     }
 }

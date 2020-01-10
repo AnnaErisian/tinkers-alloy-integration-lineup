@@ -92,8 +92,12 @@ public class Mossy extends AbstractTraitLeveled {
         return !itemStack.isEmpty() && itemStack.getItemDamage() > 0 && !ToolHelper.isBroken(itemStack);
     }
 
+    private int getLevel(ItemStack tool) {
+        return TinkerUtil.getModifierTag(tool, name).getInteger("level");
+    }
+
     private int getDurabilityPerXP(ItemStack itemStack) {
-        return 2 + levels;
+        return 2 + getLevel(itemStack);
     }
 
     // 100 * 3^(level-1)
@@ -105,8 +109,8 @@ public class Mossy extends AbstractTraitLeveled {
         return getMaxXp(level - 1) * 3;
     }
 
-    private boolean canStoreXp(int storedXp) {
-        return storedXp < getMaxXp(levels);
+    private boolean canStoreXp(ItemStack tool, int storedXp) {
+        return storedXp < getMaxXp(getLevel(tool));
     }
 
     private int getStoredXp(ItemStack tool) {
@@ -127,8 +131,8 @@ public class Mossy extends AbstractTraitLeveled {
     private int storeXp(int amount, ItemStack itemStack) {
 
         int change = 0;
-        if(canStoreXp(getStoredXp(itemStack))) {
-            int max = getMaxXp(levels);
+        if(canStoreXp(itemStack, getStoredXp(itemStack))) {
+            int max = getMaxXp(getLevel(itemStack));
             change = Math.min(amount, max - getStoredXp(itemStack));
             setStoredXp(itemStack, getStoredXp(itemStack) + change);
         }
