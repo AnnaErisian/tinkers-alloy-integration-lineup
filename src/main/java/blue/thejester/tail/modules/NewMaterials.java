@@ -594,6 +594,8 @@ public class NewMaterials implements IModule {
                     new ExtraMaterialStats(190),
                     new BowMaterialStats(1.4f, 1f, 6f)
             );
+            ArmorMaterials.addArmorTrait(aerium, FlightMastery.flightmastery, ArmorMaterialType.CORE);
+            ArmorMaterials.addArmorTrait(aerium, AirMastery.airmastery);
             aerium.setRenderInfo(0xFFFFFF);
 
             MaterialIntegration aeriumMi = new MaterialIntegration(aerium, Create.plain("aerium", 0x4e58a7)).setRepresentativeItem("ingotAerium");
@@ -660,6 +662,9 @@ public class NewMaterials implements IModule {
                     new BowMaterialStats(0.8f, 4f, 14f)
             );
             adamantite.addTrait(AbsoluteDominion.absoluteDominion, MaterialTypes.HEAD);
+            ArmorMaterials.addArmorTrait(adamantite, ImmortalCenturion.immortalCenturion1, ArmorMaterialType.TRIM);
+            ArmorMaterials.addArmorTrait(adamantite, ImmortalCenturion.immortalCenturion1, ArmorMaterialType.PLATES);
+            ArmorMaterials.addArmorTrait(adamantite, ImmortalCenturion.immortalCenturion2, ArmorMaterialType.CORE);
             adamantite.setRenderInfo(0xFFFFFF);
 
             MaterialIntegration adamantiteMi = new MaterialIntegration(adamantite, Create.plain("adamantite", 0x4e58a7)).setRepresentativeItem("ingotAdamantite");
