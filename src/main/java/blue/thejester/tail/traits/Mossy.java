@@ -26,9 +26,6 @@ import java.util.List;
 public class Mossy extends AbstractTraitLeveled {
 
     public static final Mossy mossy1 = new Mossy(1);
-    public static final Mossy mossy2 = new Mossy(2);
-    public static final Mossy mossy3 = new Mossy(3);
-    public static final Mossy mossy4 = new Mossy(4);
 
     private static final String TAG_STORED_XP = "stored_xp";
     private static final String TAG_LAST_HEAL = "heal_timestamp";

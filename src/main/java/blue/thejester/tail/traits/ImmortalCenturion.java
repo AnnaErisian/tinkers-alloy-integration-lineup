@@ -28,7 +28,6 @@ public class ImmortalCenturion extends AbstractArmorTraitLeveled {
 
     public static final ImmortalCenturion immortalCenturion1 = new ImmortalCenturion(1);
     public static final ImmortalCenturion immortalCenturion2 = new ImmortalCenturion(2);
-    public static final ImmortalCenturion immortalCenturion3 = new ImmortalCenturion(3);
 
     private static final String TAG_STORED_CHARGE = "centurion_charge";
     private static final String TAG_LAST_CHARGED = "centurion_charge_last";
@@ -36,7 +35,7 @@ public class ImmortalCenturion extends AbstractArmorTraitLeveled {
     private static final int BASE_DELAY = 180; // every 9s
 
     public ImmortalCenturion(int level) {
-        super("immortalCenturion", 0x43ab32, 3, level);
+        super("immortalCenturion", 0x43ab32, 2, level);
     }
 
     @Override

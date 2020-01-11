@@ -11,6 +11,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import slimeknights.tconstruct.library.utils.TinkerUtil;
 
 public class WitherImmunity extends AbstractArmorTraitLeveled {
 
@@ -27,10 +28,8 @@ public class WitherImmunity extends AbstractArmorTraitLeveled {
 
     @Override
     public float onHurt(ItemStack armor, EntityPlayer player, DamageSource source, float damage, float newDamage, LivingHurtEvent evt) {
-        Tail.logger.info("onHurt");
         if(!player.world.isRemote && source.damageType.equals("wither")) {
-            Tail.logger.info("onHurt - remote, type is wither");
-            if(random.nextFloat() < (level * 0.1f)) {
+            if(random.nextFloat() < (TinkerUtil.getModifierTag(armor, name).getInteger("level") * 0.1f)) {
                 evt.setCanceled(true);
                 player.removePotionEffect(MobEffects.WITHER);
             }
