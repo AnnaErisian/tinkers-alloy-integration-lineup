@@ -28,7 +28,7 @@ public class Melty extends AbstractTrait implements IArmorTrait {
     @Override
     public void onUpdate(ItemStack tool, World world, Entity entity, int itemSlot, boolean isSelected) {
         if(entity.dimension != DimensionType.THE_END.getId() && entity.dimension != AetherConfig.dimension.aether_dimension_id) {
-            if(entity instanceof EntityLivingBase && random.nextFloat() < 0.03) {
+            if(entity instanceof EntityLivingBase && random.nextFloat() < 0.003) {
                 ToolHelper.damageTool(tool, 1, (EntityLivingBase) entity);
             }
         }

@@ -35,11 +35,14 @@ public class Netherstar implements IModule {
                     new HeadMaterialStats(880, 5, 8.5f, 4),
                     new HandleMaterialStats(0.9f, 180),
                     new ExtraMaterialStats(350));
-            netherstar.setRenderInfo(0x000000);
+            setRenderInfo(netherstar, 0x000000);
 
             MaterialIntegration netherstarMi = new MaterialIntegration(netherstar).setRepresentativeItem("netherStar");
             TinkerRegistry.integrate(netherstarMi).preInit();
         }
 
+    }
+
+    public void initLate() {
     }
 }

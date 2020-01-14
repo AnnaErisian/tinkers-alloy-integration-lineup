@@ -4,6 +4,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.minecraftforge.event.world.BlockEvent;
@@ -13,7 +14,7 @@ public class Detonator extends AbstractTrait {
 	public static final Detonator detonator = new Detonator();
 
 	public Detonator() {
-		super("detonator",0xffffff);
+		super("detonator_tail",0xffffff);
 	}
 	
 	@Override
@@ -28,12 +29,11 @@ public class Detonator extends AbstractTrait {
 	public void afterBlockBreak(ItemStack tool, World world, IBlockState state, BlockPos blockpos, EntityLivingBase player, boolean wasEffective) {
 		super.afterBlockBreak(tool, world, state, blockpos, player, wasEffective);
 		if(!world.isRemote) {
-			Vec3d pos = player.rayTrace(12f, 1f).hitVec;
 			float r1 = random.nextFloat() - 0.5f;
 			float r2 = random.nextFloat() - 0.5f;
 			float r3 = random.nextFloat() - 0.5f;
 			float r4 = random.nextFloat() * 2.0f;
-			world.createExplosion(player, pos.x+r1, pos.y+r2, pos.z+r3, 3.0f+r4, true);
+			world.createExplosion(player, blockpos.getX()+r1, blockpos.getY()+r2, blockpos.getZ()+r3, 3.0f+r4, true);
 		}
 	}
 }

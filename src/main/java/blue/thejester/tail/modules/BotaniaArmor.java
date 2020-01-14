@@ -47,4 +47,7 @@ public class BotaniaArmor implements IModule {
         ArmorMaterials.addArmorTrait(TinkerRegistry.getMaterial("mirion"), Mana.mana, ArmorMaterialType.PLATES);
         ArmorMaterials.addArmorTrait(TinkerRegistry.getMaterial("mirion"), Mana.mana, ArmorMaterialType.TRIM);
     }
+
+    public void initLate() {
+    }
 }

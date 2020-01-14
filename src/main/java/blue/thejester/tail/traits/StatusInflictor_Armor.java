@@ -14,6 +14,7 @@ import net.minecraftforge.event.entity.living.LivingHurtEvent;
 public class StatusInflictor_Armor extends AbstractArmorTrait {
 
     public static final StatusInflictor_Armor frozen_aura = new StatusInflictor_Armor("frozen_aura", 0xffffff, MobEffects.SLOWNESS, 50, 3);
+    public static final StatusInflictor_Armor tarcoated = new StatusInflictor_Armor("tarcoated", 0xffffff, MobEffects.SLOWNESS, 20*4, 0);
 
     private Potion effect;
     private int duration;

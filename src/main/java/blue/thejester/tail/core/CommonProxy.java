@@ -5,6 +5,7 @@ import blue.thejester.tail.block.BlockStorage;
 import blue.thejester.tail.item.ItemMaterial;
 import blue.thejester.tail.item.MetalMaterial;
 import blue.thejester.tail.item.ModItems;
+import blue.thejester.tail.modules.*;
 import net.minecraft.block.Block;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -12,9 +13,15 @@ import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fluids.Fluid;
+import scala.tools.cmd.Meta;
 import slimeknights.mantle.client.CreativeTab;
+import slimeknights.tconstruct.library.TinkerRegistry;
+import slimeknights.tconstruct.shared.TinkerCommons;
+import slimeknights.tconstruct.shared.TinkerFluids;
 
-public abstract class CommonProxy {
+import java.util.Arrays;
+
+public class CommonProxy {
 
     public static CreativeTab tailCreativeTab = new CreativeTab("TailTab", new ItemStack(Items.IRON_HOE));
 
@@ -22,10 +29,14 @@ public abstract class CommonProxy {
      * Run before anything else. Read your config, create blocks, items, etc, and register them with the GameRegistry
      */
     public void preInit() {
-        //read config first
+
+        ModItems.init();
+        IModule.modules.addAll(Arrays.asList(new BotaniaArmor(), new Betweenlands(), new Fluids(), new Netherstar(), new NewMaterials()));
+        IModule.modules.forEach(IModule::init);
 
         ModItems.init();
         MetalMaterial.makeItems();
+        MetalMaterial.sendSmelteryIMC();
 
         tailCreativeTab.setDisplayIcon(MetalMaterial.adamantite.ingotStack);
 
@@ -36,6 +47,7 @@ public abstract class CommonProxy {
      * send FMLInterModComms messages to other mods.
      */
     public void init() {
+        MetalMaterial.registerOreDict();
         MetalMaterial.makeRecipes();
     }
 
@@ -43,7 +55,8 @@ public abstract class CommonProxy {
      * Handle interaction with other mods, complete your setup based on this.
      */
     public void postInit() {
-        MetalMaterial.registerOreDict();
+        IModule.modules.forEach(IModule::initLate);
+
     }
 
     /**
@@ -51,7 +64,9 @@ public abstract class CommonProxy {
      *
      * @return true if this is a dedicated server, false otherwise
      */
-    abstract public boolean isDedicatedServer();
+    public boolean isDedicatedServer() {
+        return true;
+    }
 
     public void registerFluidModels(Fluid fluid) {
 

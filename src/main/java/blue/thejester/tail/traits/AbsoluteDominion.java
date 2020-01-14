@@ -13,6 +13,7 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import slimeknights.tconstruct.library.Util;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 import slimeknights.tconstruct.library.utils.TagUtil;
 import slimeknights.tconstruct.library.utils.TinkerUtil;
@@ -43,7 +44,9 @@ public class AbsoluteDominion extends AbstractTrait {
 				boolean newDisabledState = !((EntityLiving)entity).isAIDisabled();
 				((EntityLiving)entity).setNoAI(newDisabledState);
 				event.getEntityPlayer().sendMessage(new TextComponentTranslation(
-						newDisabledState ? "msg.tail.absolutedomainmodifier.disable" : "msg.tail.absolutedomainmodifier.release"));
+						newDisabledState
+								? Util.translateFormatted("msg.tail.absolutedomainmodifier.disable", entity.getDisplayName().getUnformattedText())
+								: Util.translateFormatted("msg.tail.absolutedomainmodifier.release", entity.getDisplayName().getUnformattedText())));
 			}
 		}
 		ToolHelper.damageTool(event.getItemStack(), durabilityCost(event.getTarget()), event.getEntityLiving());

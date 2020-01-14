@@ -21,10 +21,12 @@ public class ModItems {
 
     @SubscribeEvent
     public static void registerItems(RegistryEvent.Register<Item> event) {
-        event.getRegistry().registerAll(traitProfiler);
+//        event.getRegistry().registerAll(traitProfiler);
+        for (MetalMaterial mat : MetalMaterial.values()) {
+            event.getRegistry().registerAll(mat.nugget);
+        }
         for (MetalMaterial mat : MetalMaterial.values()) {
             event.getRegistry().registerAll(mat.ingot);
-            event.getRegistry().registerAll(mat.nugget);
         }
     }
 

@@ -44,9 +44,6 @@ public class Tail
     public void preInit(FMLPreInitializationEvent event)
     {
         logger = event.getModLog();
-        ModItems.init();
-        IModule.modules.addAll(Arrays.asList(new BotaniaArmor(), new Betweenlands(), new Fluids(), new Netherstar(), new NewMaterials()));
-        IModule.modules.forEach(IModule::init);
 
         proxy.preInit();
     }

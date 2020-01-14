@@ -15,7 +15,7 @@ import vazkii.botania.api.item.IFlowerPlaceable;
 import vazkii.botania.api.state.BotaniaStateProps;
 import vazkii.botania.common.block.ModBlocks;
 
-public class FlowerPower_Armor extends AbstractArmorTrait {
+public class  FlowerPower_Armor extends AbstractArmorTrait {
 
     public static final FlowerPower_Armor flowerpower = new FlowerPower_Armor("flowerpower", 0xffffff);
 
@@ -26,7 +26,7 @@ public class FlowerPower_Armor extends AbstractArmorTrait {
     @Override
     public void onAbilityTick(int level, World world, EntityPlayer player) {
         super.onAbilityTick(level, world, player);
-        if(world.getWorldTime() % 4000 == 0) {
+        if(world.getWorldTime() % 1000 == 0) {
             int x = (int) (player.posX + random.nextInt(7) - 3);
             int y = (int) (player.posY + random.nextInt(4) - 2);
             int z = (int) (player.posZ + random.nextInt(7) - 3);
@@ -37,5 +37,4 @@ public class FlowerPower_Armor extends AbstractArmorTrait {
             }
         }
     }
-
 }

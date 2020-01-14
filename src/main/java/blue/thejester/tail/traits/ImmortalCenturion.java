@@ -35,7 +35,7 @@ public class ImmortalCenturion extends AbstractArmorTraitLeveled {
     private static final int BASE_DELAY = 180; // every 9s
 
     public ImmortalCenturion(int level) {
-        super("immortalCenturion", 0x43ab32, 2, level);
+        super("immortal_centurion", 0x43ab32, 2, level);
     }
 
     @Override
@@ -102,7 +102,7 @@ public class ImmortalCenturion extends AbstractArmorTraitLeveled {
 
     @Override
     public List<String> getExtraInfo(ItemStack tool, NBTTagCompound modifierTag) {
-        String loc = String.format(LOC_Extra, getIdentifier());
+        String loc = String.format(LOC_Extra, name);
         return ImmutableList.of(
                 Util.translateFormatted(loc, getStoredCharge(tool))
         );

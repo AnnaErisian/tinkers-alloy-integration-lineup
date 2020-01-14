@@ -1,10 +1,14 @@
 package blue.thejester.tail.item;
 
 import blue.thejester.tail.block.BlockStorage;
+import nc.util.StringHelper;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fml.common.event.FMLInterModComms;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
 
@@ -18,6 +22,7 @@ import static cofh.core.util.helpers.RecipeHelper.addTwoWayStorageRecipe;
 public enum MetalMaterial {
 
     sageslime,
+    betweensteel,
     chaoite,
     tritanium,
     white_steel,
@@ -57,7 +62,9 @@ public enum MetalMaterial {
     pyrium,
     sestertium,
     orichalcum,
-    adamantite;
+    adamantite,
+    tinardite,
+    daemotium;
 
     public Item ingot = null;
     public ItemStack ingotStack = null;
@@ -66,6 +73,7 @@ public enum MetalMaterial {
     public Block block = null;
     public Item blockItem = null;
     public ItemStack blockItemStack = null;
+    public Fluid fluid = null;
 
     public String getOreName() {
         List<String> list = new ArrayList<>();
@@ -108,4 +116,14 @@ public enum MetalMaterial {
         return true;
     }
 
+    public static boolean sendSmelteryIMC() {
+        for (MetalMaterial mat : MetalMaterial.values()) {
+            NBTTagCompound tag = new NBTTagCompound();
+            tag.setString("fluid", mat.name());
+            tag.setString("ore", StringHelper.capitalize(mat.getOreName()));
+            tag.setBoolean("toolforge", true);
+            FMLInterModComms.sendMessage("tconstruct", "integrateSmeltery", tag);
+        }
+        return true;
+    }
 }

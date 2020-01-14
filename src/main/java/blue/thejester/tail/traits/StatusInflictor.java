@@ -13,6 +13,7 @@ public class StatusInflictor extends AbstractTrait {
 	public static final StatusInflictor ascendant = new StatusInflictor("ascendant", 0xffffff, MobEffects.LEVITATION, 20 * 2, 5);
 	public static final StatusInflictor antigravity = new StatusInflictor("antigravity", 0xffffff, MobEffects.LEVITATION, 20 * 7, 0);
 	public static final StatusInflictor frosty = new StatusInflictor("frosty", 0xffffff, MobEffects.SLOWNESS, 5 * 20, 1);
+	public static final StatusInflictor tarcoated = new StatusInflictor("tarcoated", 0xffffff, MobEffects.SLOWNESS, 5 * 20, 0);
 
 	private Potion effect;
 	private int duration;

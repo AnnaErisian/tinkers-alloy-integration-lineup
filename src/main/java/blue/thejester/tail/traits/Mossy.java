@@ -149,7 +149,7 @@ public class Mossy extends AbstractTraitLeveled {
 
     @Override
     public List<String> getExtraInfo(ItemStack tool, NBTTagCompound modifierTag) {
-        String loc = String.format(LOC_Extra, getIdentifier());
+        String loc = String.format(LOC_Extra, name);
         return ImmutableList.of(
                 Util.translateFormatted(loc, getStoredXp(tool))
         );
