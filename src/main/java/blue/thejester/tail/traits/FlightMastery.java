@@ -23,8 +23,14 @@ public class FlightMastery extends AbstractArmorTrait {
     @Override
     public float onDamaged(ItemStack armor, EntityPlayer player, DamageSource source, float damage, float newDamage, LivingDamageEvent evt) {
         if(source.damageType.equals("flyIntoWall")) {
-            evt.setCanceled(true);
-            return 0;
+            if(damage < 4) {
+                evt.setCanceled(true);
+                return 0;
+            } else if(damage < 40) {
+                return damage / 3f;
+            } else {
+                return 12f;
+            }
         }
         return newDamage;
     }
