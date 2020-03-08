@@ -9,6 +9,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
+import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import vazkii.botania.api.state.BotaniaStateProps;
 import vazkii.botania.common.block.ModBlocks;
 
@@ -26,10 +27,10 @@ public class FlightMastery extends AbstractArmorTrait {
             if(damage < 4) {
                 evt.setCanceled(true);
                 return 0;
-            } else if(damage < 40) {
-                return damage / 3f;
+            } else if(damage < 36) {
+                return damage / 2f;
             } else {
-                return 12f;
+                return 18f;
             }
         }
         return newDamage;
