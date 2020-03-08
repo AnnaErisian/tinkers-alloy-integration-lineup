@@ -2,6 +2,7 @@ package blue.thejester.tail.traits;
 
 import c4.conarm.common.armor.utils.ArmorHelper;
 import c4.conarm.lib.modifiers.ArmorModifierTrait;
+import c4.conarm.lib.traits.AbstractArmorTrait;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
@@ -12,7 +13,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import slimeknights.tconstruct.shared.TinkerCommons;
 
-public class GlowingAllArmor extends ArmorModifierTrait{
+public class GlowingAllArmor extends AbstractArmorTrait {
 
     public static final GlowingAllArmor glowing = new GlowingAllArmor();
 

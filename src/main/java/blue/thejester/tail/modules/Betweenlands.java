@@ -4,6 +4,8 @@ import blue.thejester.tail.helper.fluid.Create;
 import blue.thejester.tail.traits.Ignitive;
 import c4.conarm.common.armor.traits.ArmorTraits;
 import c4.conarm.lib.materials.*;
+import cofh.thermalfoundation.ThermalFoundation;
+import cofh.thermalfoundation.item.ItemMaterial;
 import landmaster.plustic.traits.Terrafirma;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.Fluid;
@@ -19,6 +21,7 @@ import slimeknights.tconstruct.tools.TinkerTraits;
 import thebetweenlands.api.IBetweenlandsAPI;
 import thebetweenlands.common.item.misc.ItemMisc;
 import thebetweenlands.common.registries.BlockRegistry;
+import thebetweenlands.common.registries.FluidRegistry;
 import thebetweenlands.common.registries.ItemRegistry;
 
 public class Betweenlands implements IModule {
@@ -126,5 +129,12 @@ public class Betweenlands implements IModule {
         TinkerRegistry.registerTableCasting(new ItemStack(ItemRegistry.ITEMS_MISC, 1, ItemMisc.EnumItemMisc.OCTINE_NUGGET.getID()), TinkerSmeltery.castNugget, octineFluid, 144 / 9);
         TinkerRegistry.registerTableCasting(new ItemStack(ItemRegistry.OCTINE_INGOT), TinkerSmeltery.castIngot, octineFluid, 144);
         TinkerRegistry.registerBasinCasting(new CastingRecipe(new ItemStack(BlockRegistry.OCTINE_BLOCK),  octineFluid, 144 * 9, 800));
+
+        TinkerRegistry.registerMelting(new ItemStack(ItemRegistry.ITEMS_MISC, 1, ItemMisc.EnumItemMisc.TAR_DRIP.getID()), FluidRegistry.TAR, 100);
+        TinkerRegistry.registerTableCasting(new ItemStack(ItemRegistry.ITEMS_MISC, 1, ItemMisc.EnumItemMisc.TAR_DRIP.getID()), ItemStack.EMPTY, FluidRegistry.TAR, 100);
+        TinkerRegistry.registerBasinCasting(new CastingRecipe(new ItemStack(BlockRegistry.TAR_SOLID),  FluidRegistry.TAR, 1000, 300));
+        TinkerRegistry.registerMelting(new ItemStack(BlockRegistry.TAR_SOLID), FluidRegistry.TAR, 1000);
+
+
     }
 }

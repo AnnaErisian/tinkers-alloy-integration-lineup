@@ -370,6 +370,8 @@ modifier.outrageous.name=Outrageous
 modifier.outrageous.desc=§oAbsolutely irredeemable!§r\nThis tool cannot have modifiers
 modifier.immortal_centurion_armor.name=Immortal Centurion
 modifier.immortal_centurion_armor.desc=§oYou can't win! I'm invincible!§r\nSlowly stores a charge, up to a limit, and eats through that to prevent damage.  If a hit would overflow but the charge is maxed out, prevents the whole hit.
+modifier.immortal_centurion_armor.name=Gaian
+modifier.immortal_centurion_armor.desc=§oPower to the people of earth!§r\nSlowly heals the wearer, and will generate mana in to containers if they have 4 levels of it.
 
 modifier.immortal_centurion_armor.extra=Centurion Charge: %d
 modifier.mossy.extra=Stored XP: %d

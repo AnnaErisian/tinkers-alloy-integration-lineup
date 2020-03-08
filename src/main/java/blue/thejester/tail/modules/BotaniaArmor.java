@@ -1,6 +1,7 @@
 package blue.thejester.tail.modules;
 
 import blue.thejester.tail.Tail;
+import blue.thejester.tail.traits.Gaian;
 import c4.conarm.lib.materials.*;
 import landmaster.plustic.traits.Mana;
 import landmaster.plustic.traits.Mirabile;
@@ -32,9 +33,7 @@ public class BotaniaArmor implements IModule {
                 new CoreMaterialStats(19.9f, 21f),
                 new PlatesMaterialStats(1.12f, 13f, 5f),
                 new TrimMaterialStats(14f));
-        ArmorMaterials.addArmorTrait(TinkerRegistry.getMaterial("terrasteel"), Terrafirma.terrafirma.get(1), ArmorMaterialType.CORE);
-        ArmorMaterials.addArmorTrait(TinkerRegistry.getMaterial("terrasteel"), Terrafirma.terrafirma.get(0), ArmorMaterialType.PLATES);
-        ArmorMaterials.addArmorTrait(TinkerRegistry.getMaterial("terrasteel"), Terrafirma.terrafirma.get(0), ArmorMaterialType.TRIM);
+        ArmorMaterials.addArmorTrait(TinkerRegistry.getMaterial("terrasteel"), Gaian.gaian, ArmorMaterialType.CORE);
         ArmorMaterials.addArmorTrait(TinkerRegistry.getMaterial("terrasteel"), Mana.mana, ArmorMaterialType.CORE);
         ArmorMaterials.addArmorTrait(TinkerRegistry.getMaterial("terrasteel"), Mana.mana, ArmorMaterialType.PLATES);
         ArmorMaterials.addArmorTrait(TinkerRegistry.getMaterial("terrasteel"), Mana.mana, ArmorMaterialType.TRIM);
